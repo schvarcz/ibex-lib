@@ -25,7 +25,9 @@ IntervalVector qinter_projf(const Array<IntervalVector>& _boxes, int q) {
 	assert(q>0);
 	assert(_boxes.size()>0);
 	int n = _boxes[0].size();
-	
+
+	if(q == 0)
+		return IntervalVector(_boxes[0].size(), Interval::ALL_REALS);
 	/* Remove the empty boxes from the list */
 	
 	int p=0;	
